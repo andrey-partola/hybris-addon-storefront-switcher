@@ -25,13 +25,13 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <applicationConfigurable instance="com.aswitcher.SwitcherConfigurable"/>
-    <applicationService serviceImplementation="com.aswitcher.SwitcherState"/>
+    <applicationConfigurable instance="com.aswitcher.settings.SwitcherConfigurable"/>
+    <applicationService serviceImplementation="com.aswitcher.settings.SwitcherState"/>
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
-    <action id="SwitchAction" class="com.aswitcher.SwitchAction" text="SwitchAction" description="Switch Action">
+    <action id="SwitchAction" class="com.aswitcher.action.SwitchAction" text="SwitchAction" description="Switch Action">
       <add-to-group group-id="FileOpenGroup" anchor="last"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt K"/>
     </action>

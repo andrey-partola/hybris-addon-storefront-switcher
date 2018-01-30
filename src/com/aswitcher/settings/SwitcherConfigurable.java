@@ -1,5 +1,6 @@
-package com.aswitcher;
+package com.aswitcher.settings;
 
+import com.aswitcher.view.ConfigurationForm;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import org.jetbrains.annotations.Nls;

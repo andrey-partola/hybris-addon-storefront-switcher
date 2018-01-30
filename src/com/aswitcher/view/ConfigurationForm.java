@@ -1,5 +1,7 @@
-package com.aswitcher;
+package com.aswitcher.view;
 
+import com.aswitcher.settings.SwitcherApplicationSettings;
+import com.aswitcher.settings.SwitcherState;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;

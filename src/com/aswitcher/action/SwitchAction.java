@@ -1,5 +1,7 @@
-package com.aswitcher;
+package com.aswitcher.action;
 
+import com.aswitcher.settings.SwitcherApplicationSettings;
+import com.aswitcher.settings.SwitcherState;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;

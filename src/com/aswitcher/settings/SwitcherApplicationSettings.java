@@ -1,4 +1,4 @@
-package com.aswitcher;
+package com.aswitcher.settings;
 
 import com.intellij.ide.util.PropertyName;
 
