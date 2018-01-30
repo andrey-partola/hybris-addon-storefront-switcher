@@ -1,0 +1,40 @@
+<idea-plugin>
+  <id>com.aswitcher</id>
+  <name>Hybris Addon-Storefront Switcher</name>
+  <version>2.1</version>
+  <vendor email="andrey.partola@gmail.com" url="https://www.linkedin.com/in/andrii-partola-119365149/">Andrey Partola</vendor>
+
+  <description><![CDATA[
+      Switches storefront to addon and vice versa.
+    ]]></description>
+
+  <change-notes><![CDATA[
+      - Added opportunity to change storefront and addons in settings
+      - Storefront and addons can be chosen from modules list
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="172.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <applicationConfigurable instance="com.aswitcher.SwitcherConfigurable"/>
+    <applicationService serviceImplementation="com.aswitcher.SwitcherState"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="SwitchAction" class="com.aswitcher.SwitchAction" text="SwitchAction" description="Switch Action">
+      <add-to-group group-id="FileOpenGroup" anchor="last"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt K"/>
+    </action>
+  </actions>
+
+</idea-plugin>
