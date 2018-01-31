@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.aswitcher</id>
   <name>Hybris Addon-Storefront Switcher</name>
-  <version>2.1</version>
+  <version>2.0</version>
   <vendor email="andrey.partola@gmail.com" url="https://www.linkedin.com/in/andrii-partola-119365149/">Andrey Partola</vendor>
 
   <description><![CDATA[

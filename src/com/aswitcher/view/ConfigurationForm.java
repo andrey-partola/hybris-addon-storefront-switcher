@@ -19,8 +19,6 @@ import java.util.stream.IntStream;
 public class ConfigurationForm {
 
     private JPanel rootPanel;
-    private JTextField selectedStorefront;
-    private JLabel currentStorefrontLabel;
     private JLabel currentAddonsLabel;
     private JList<String> currentAddonsList;
     private JButton addAddonButton;
@@ -28,11 +26,9 @@ public class ConfigurationForm {
     private JTextField addonToAddTextField;
     private JLabel addAddonLabel;
     private JList<String> addonModules;
-    private JLabel addStoreftontLabel;
-    private JScrollPane storefrontModulesScrollPane;
     private JScrollPane currentAddonsScrollPane;
-    private JList<String> storefrontModules;
-    private JButton selectStorefrontButton;
+    private JComboBox<String> storefrontComboBox;
+    private JLabel storefrontLabel;
 
     public ConfigurationForm() {
         setUpModules();
@@ -43,7 +39,6 @@ public class ConfigurationForm {
     private void setUpListeners() {
         setUpAddAddonButtonListeners();
         setUpRemoveAddonButtonListeners();
-        setUpSelectStorefrontButtonListeners();
     }
 
     private void setUpAddAddonButtonListeners() {
@@ -66,26 +61,13 @@ public class ConfigurationForm {
         });
     }
 
-    private void setUpSelectStorefrontButtonListeners() {
-        selectStorefrontButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                String selectedModule = storefrontModules.getSelectedValue();
-                if (selectedModule != null) {
-                    selectedStorefront.setText(selectedModule);
-                    storefrontModules.clearSelection();
-                }
-            }
-        });
-    }
-
     private void setUpModules() {
         DefaultListModel<String> model = new DefaultListModel<>();
         getCurrentProjectModules().stream()
                 .map(Module::getName)
+                .peek(item -> storefrontComboBox.addItem(item))
                 .forEach(model::addElement);
         addonModules.setModel(model);
-        storefrontModules.setModel(model);
     }
 
     private List<Module> getCurrentProjectModules() {
@@ -99,7 +81,7 @@ public class ConfigurationForm {
     private void setUpData() {
         currentAddonsList.setModel(new DefaultListModel<>());
         SwitcherApplicationSettings settings = getSettings();
-        selectedStorefront.setText(settings.getStorefront());
+        storefrontComboBox.setSelectedItem(settings.getStorefront());
         DefaultListModel<String> listModel = (DefaultListModel<String>) currentAddonsList.getModel();
         settings.getAddons().forEach(listModel::addElement);
     }
@@ -122,7 +104,11 @@ public class ConfigurationForm {
     }
 
     public String getStorefront() {
-        return selectedStorefront.getText();
+        Object selectedItem = storefrontComboBox.getSelectedItem();
+        if (selectedItem != null) {
+            return selectedItem.toString();
+        }
+        return null;
     }
 
     public List<String> getAddons() {
