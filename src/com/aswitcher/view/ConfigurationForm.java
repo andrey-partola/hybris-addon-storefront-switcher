@@ -104,11 +104,7 @@ public class ConfigurationForm {
     }
 
     public String getStorefront() {
-        Object selectedItem = storefrontComboBox.getSelectedItem();
-        if (selectedItem != null) {
-            return selectedItem.toString();
-        }
-        return null;
+        return storefrontComboBox.getItemAt(storefrontComboBox.getSelectedIndex());
     }
 
     public List<String> getAddons() {
