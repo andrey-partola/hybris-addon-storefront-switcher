@@ -13,6 +13,8 @@ public class SwitchAction extends AddonStorefrontAction {
 
     @Override
     public void actionPerformed(AnActionEvent event) {
+        super.actionPerformed(event);
+
         String sourceFilePath = getSourceFilePath(event);
         String fileToOpenPath = replacePath(sourceFilePath);
         if (fileToOpenPath == null) {

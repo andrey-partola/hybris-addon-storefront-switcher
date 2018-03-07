@@ -1,15 +1,18 @@
 <idea-plugin>
     <id>com.aswitcher</id>
     <name>Hybris Addon-Storefront Switcher</name>
-    <version>3.0</version>
+    <version>3.1</version>
     <vendor email="andrey.partola@gmail.com" url="https://www.linkedin.com/in/andrii-partola-119365149/">
         Andrii Partola
     </vendor>
 
     <description><![CDATA[
-      Switches addon to storefront and backwards.
-      Press CTRL + ALT + K to switch addon to storefront and backwards.
-      Press CTRL + ALT + U to copy content from addon to storefront and backwards.
+      <p>Switches addon to storefront and backwards.</p>
+        <ul>
+            <li>Select storefront and addons in settings.</li>
+            <li>Press <b>CTRL + ALT + K</b> to switch addon to storefront and backwards.</li>
+            <li>Press <b>CTRL + ALT + U</b> to copy content from addon to storefront and backwards.</li>
+        </ul>
     ]]></description>
 
     <change-notes><![CDATA[

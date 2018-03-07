@@ -20,6 +20,8 @@ public class CopyAction extends SwitchAction {
 
     @Override
     public void actionPerformed(AnActionEvent event) {
+        super.actionPerformed(event);
+
         String sourceFilePath = getSourceFilePath(event);
         String fileToCopyPath = replacePath(sourceFilePath);
         if (fileToCopyPath == null) {

@@ -10,6 +10,7 @@ import com.intellij.openapi.project.ProjectManager;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -71,11 +72,16 @@ public class ConfigurationForm {
     }
 
     private List<Module> getCurrentProjectModules() {
-        Project project = ProjectManager.getInstance().getOpenProjects()[0];
+        List<Module> moduleList = new ArrayList<>();
+        Arrays.stream(ProjectManager.getInstance().getOpenProjects())
+                .forEach(project -> addProjectModulesToList(project, moduleList));
+        moduleList.sort(Comparator.comparing(Module::getName));
+        return moduleList;
+    }
+
+    private void addProjectModulesToList(Project project, List<Module> moduleList) {
         Module[] modules = ModuleManager.getInstance(project).getModules();
-        List<Module> modulesList = Arrays.asList(modules);
-        modulesList.sort(Comparator.comparing(Module::getName));
-        return modulesList;
+        moduleList.addAll(Arrays.asList(modules));
     }
 
     private void setUpData() {
