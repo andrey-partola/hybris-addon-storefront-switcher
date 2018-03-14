@@ -10,7 +10,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 
 import java.io.IOException;
 
-public class CopyAction extends SwitchAction {
+public class CopyAction extends AddonStorefrontAction {
 
     private static final String MESSAGE_CANNOT_FIND_FILE_TO_COPY = "Cannot find file to copy";
     private static final String MESSAGE_CANNOT_PERFORM_COPY = "Cannot perform copy";
